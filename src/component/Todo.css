@@ -121,6 +121,8 @@
     background-color: #cccccc;
     color: black;
   }
-
+  .added{
+    display: none;
+  }
 
 

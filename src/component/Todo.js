@@ -5,26 +5,31 @@ import { MdDeleteForever } from 'react-icons/md'
 
 const Todo = () => {
   const [isComplete, setIsComplete] = useState(false);
-  const [allTodo, setAllTodo] = useState([])
-  const [allComplete, setComplete] = useState([])
-
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
+  const [allTodo, setAllTodo] = useState([]);
+  const [allComplete, setComplete] = useState([]);
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
 
 
 
   const handleTitleChange = (e) => {
-    setTitle(e.target.value) 
+    setTitle(e.target.value)
+
+   
   }
+  
+
   const handleDescriptionChange = (e) => {
     setDescription(e.target.value) 
   }
   const handleAddClick = () =>{
+
     let todolist = {
       'title' : title,
       'description' : description
     }
     let updated = [...allTodo]
+
     updated.push(todolist)
     setAllTodo(updated)
     setDescription('')
@@ -69,6 +74,9 @@ const handleDeleteClick2 = (index) => {
     if(importedtodo){
       setAllTodo(importedtodo)
     } 
+    // if(title){
+    //   setCheck(true)
+    // }
     let completedtodo = JSON.parse(localStorage.getItem('completed'));
     if(completedtodo){
       setComplete(completedtodo)
@@ -89,18 +97,21 @@ const handleDeleteClick2 = (index) => {
               <div>Description:</div>
               <input type="text" name="description" id="description_input" value={description} placeholder='Todo description ?' onChange={(e) => {handleDescriptionChange(e)}}/>
             </div>
-            <div className="submit">
-              <button className='addBtn' onClick={()=>{handleAddClick()}}>Add</button>
-            </div>
+          
+                <div className="submit">
+                    <button className={ title !== "" && description !== "" ? 'addBtn' : 'added' } onClick={()=>{handleAddClick()}}>Add</button>
+                </div>
+          
+               
           </div>
           <div className="nav">
-            <button className={ isComplete ? 'primaryBtn' : 'but' } onClick={()=>{setIsComplete(false)}}>Todos</button>
-            <button className={ isComplete ? 'but' : 'primaryBtn' } onClick={()=>{setIsComplete(true)}}>Completed</button>
+            
           </div>
         </div>
         
         <div className="itter">
-        {isComplete === false && allTodo.map((item, index) => {
+        <button className={ isComplete ? 'primaryBtn' : 'but' } onClick={()=>{setIsComplete(false)}}>Todos</button>
+        { allTodo.map((item, index) => {
           return(
           <article className='todoitem' key={index}>
             <div className="top">
@@ -115,7 +126,8 @@ const handleDeleteClick2 = (index) => {
           )
         })}
         </div>
-        {isComplete === true && allComplete.map((item, index) => {
+            <button className={ isComplete ? 'but' : 'primaryBtn' } onClick={()=>{setIsComplete(true)}}>Completed</button>
+            {allComplete.map((item, index) => {
           return(
           <article className='todoitem' key={index}>
             <div className="top">
