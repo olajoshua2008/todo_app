@@ -1,0 +1,126 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+.inner{
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+  }
+  .todo{
+    width: 70vw;
+    max-height: 80vh;
+    padding: 40px 20px;
+    background-color: rgb(113, 109, 109);
+    color: white;
+    height: fit-content;
+    margin-top: 40px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+  }
+  .input{
+    display: flex;
+    padding: 10px 20px;
+    align-items: center;
+  }
+  .aler{
+    padding: 10px;
+    min-width: 200px;
+    max-width: 400px;
+    text-align: left;
+    display: block;
+    margin-right: 10px;
+  }
+  @media screen and (max-width: 760px) {
+    .inner{
+      /* display: block; */
+      align-items: center;
+      justify-content: center;
+      /* text-align: center; */
+      
+    }
+    .input{
+      display: block;
+    }
+    .nav{
+      align-self: start;
+    }
+  }
+  .aler input{
+    width: 100%;
+    padding: 10px;
+  }
+  button{
+    width: fit-content;
+    font-weight: 600;
+    padding: 10px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: rgb(208, 154, 53);
+    color: white;
+    border: transparent;
+    height: 100%;
+  }
+  .but{
+    width: fit-content;
+    font-weight: 600;
+    padding: 10px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: rgb(208, 154, 53);
+    color: white;
+    border: transparent;
+  }
+  .nav{
+    padding: 30px;
+  }
+  .primaryBtn{
+    background-color: rgb(112, 69, 69);
+  }
+  .todoitem{
+    display: flex;
+    background-color: rgba(21, 13, 13, 0.5);
+    box-shadow: 2px 2px 10px black;
+    padding: 10px;
+    justify-content: space-between;
+    margin: 15px auto;
+  }
+  .top, .last{
+    padding: 10px;
+
+  }
+  .top{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .top h2{
+    text-transform: capitalize;
+    font-family: cursive;
+  }
+  .top h5{
+    text-transform: capitalize;
+    font-weight: 300;
+  }
+  .icon{
+    font-size: 35px;
+    padding: 5px;
+    transition: all 1s ease;
+    margin-top: 5px;
+  }
+  .icon:hover{
+
+    background-color: #cccccc;
+    color: black;
+  }
+
+
+
